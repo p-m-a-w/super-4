@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    not similiar to circuit not worth to comprehend...<br>
+    <button onclick="clicked()">Click</button>
+    <button id="toggle" onclick="toggle_rg()">Now: Green</button>
+    <script>
+        const max_steps = 2, max_clicks = 2;
+        let defeated = false, red = false, steps = 0, clicks = 0, place = 1, toggle_btn = document.getElementById('toggle');
+        function clicked() {
+            console.log({ defeated, red, steps, clicks, place });
+            clicks += 1;
+            if (clicks >= max_clicks) {
+                steps += 1;
+                clicks = 0;
+            }
+            if (steps >= max_steps) {
+                alert(1);
+            }
+        }
+        function toggle_rg() {
+            if (red) {
+                toggle_btn.innerHTML = 'Now: Green'
+                red = false;
+            } else {
+                toggle_btn.innerHTML = 'Now: Red'
+                red = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
