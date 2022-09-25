@@ -64,7 +64,7 @@ module game_stim;
         rst <= 1;
         #1;
         rst <= 0;
-        #100000;
+        #1000000;
         $finish;
 	end
 endmodule
