@@ -7,16 +7,13 @@ module game_stim;
 
     reg red_toggle;
     reg [3:0] max_clicks, max_steps, click;
-    wire [3:0] status_code, position;
-    wire [1:0] output_player;
+    wire [3:0] out_status_code, out_position;
+    wire [1:0] out_player_sel, out_red_light;
 
-    game i_game(.clk(clk), .rst(rst), 
-        .max_clicks(max_clicks),
-        .max_steps(max_steps),
-        .click(click),
-        .output_player(output_player), 
-        .position(position), 
-        .status_code(status_code)
+    game i_game(
+        .out_player_sel(out_player_sel), .out_position(out_position), .out_status_code(out_status_code), .out_red_light(out_red_light),
+        .max_clicks(max_clicks), .max_steps(max_steps), .red_toggle(red_toggle), .clicks(click),
+        .clk(clk), .rst(rst)
     );
     
 
@@ -59,7 +56,7 @@ module game_stim;
         max_steps <= 10;
         red_toggle <= 0;
         rst <= 1;
-        #1;
+        #10;
         rst <= 0;
         #1000000;
         $finish;
