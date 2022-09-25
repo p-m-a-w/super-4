@@ -4,10 +4,8 @@
 module game_logic_stim;
     localparam period = 10;
     reg clk, click, rst, red, win, enable;
-    reg [4:0] max_clicks;
-    reg [2:0] max_steps;
-    wire [3:0] status_code;
-    wire [2:0] position;
+    reg [3:0] max_clicks, max_steps;
+    wire [3:0] status_code, position;
     game_logic GameLogic(.clk(clk), .rst(rst), 
         .red(red),
         .win(win),
@@ -36,8 +34,8 @@ module game_logic_stim;
     initial begin
 		$dumpfile("game_logic_stim.vcd");
 		$dumpvars(0, game_logic_stim);
-        max_clicks <= 10;
-        max_steps <= 10;
+        max_clicks <= 14;
+        max_steps <= 14;
         enable <= 1;
         red <= 0;
         win <= 1;

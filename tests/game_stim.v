@@ -6,11 +6,8 @@ module game_stim;
     reg clk, rst;
 
     reg red_toggle;
-    reg [4:0] max_clicks;
-    reg [2:0] max_steps;
-    reg [3:0] click;
-    wire [3:0] status_code;
-    wire [2:0] position;
+    reg [3:0] max_clicks, max_steps, click;
+    wire [3:0] status_code, position;
     wire [1:0] output_player;
 
     game i_game(.clk(clk), .rst(rst), 
