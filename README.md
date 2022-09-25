@@ -8,6 +8,6 @@ git clone https://github.com/p-m-a-w/super-4.git
 3) Run this command
 ```
 cd super-4
-make simulate
+make simulation
 ```
 4) Open vcd with gtkwave on file ``simulation/game_stim.vcd``
