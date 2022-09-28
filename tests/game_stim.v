@@ -6,14 +6,15 @@ module game_stim;
     reg clk, rst;
 
     reg red_toggle;
-    reg [3:0] max_clicks, max_steps, click;
-    wire [3:0] out_status_code, out_position;
+    reg [3:0] max_clicks, click;
+    wire [6:0] out_status;
+    wire [7:0] out_position;
     wire [1:0] out_player_sel, out_red_light;
 
     game i_game(
-        .out_player_sel(out_player_sel), .out_position(out_position), .out_status_code(out_status_code), .out_red_light(out_red_light),
-        .max_clicks(max_clicks), .max_steps(max_steps), .red_toggle(red_toggle), .clicks(click),
-        .clk(clk), .rst(rst)
+        out_player_sel, out_position, out_status, out_red_light,
+        max_clicks, red_toggle, click,
+        clk, rst
     );
     
 
@@ -53,7 +54,6 @@ module game_stim;
 		$dumpfile("game_stim.vcd");
 		$dumpvars(0, game_stim);
         max_clicks <= 10;
-        max_steps <= 10;
         red_toggle <= 0;
         rst <= 1;
         #10;
